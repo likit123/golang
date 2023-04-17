@@ -37,11 +37,11 @@ func main() {
 }
 
 func promotion(c *fiber.Ctx) error {
-	results := []Line_result{}
+	results := []Promotion_struct{}
 	rows, _ := db1.Query("select id,promotion_name from promotion ")
 	defer rows.Close()
 	for rows.Next() {
-		s := Line_result{}
+		s := Promotion_struct{}
 		if err := rows.Scan(&s.Id, &s.Promotion_name); err != nil {
 			return err
 		}
@@ -50,7 +50,7 @@ func promotion(c *fiber.Ctx) error {
 	return c.JSON(results)
 }
 
-type Line_result struct {
+type Promotion_struct struct {
 	Id             string `json:"id"`
 	Promotion_name string `json:"promotion_name"`
 }
