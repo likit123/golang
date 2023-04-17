@@ -17,7 +17,7 @@ var db1 *sqlx.DB
 
 func main() {
 	var err1 error
-	db1, err1 = sqlx.Open("mysql", "_USER_:_PASSWORD_E@tcp(_IPADDRESS_:3306)/_DATABASE_")
+	db1, err1 = sqlx.Open("mysql", "_USER_:_PASSWORD_@tcp(_IPADDRESS_:3306)/_DATABASE_")
 
 	if err1 != nil {
 		panic(err1)
